@@ -26,7 +26,12 @@ We are in python!
 
 import struct
 from copy import deepcopy
-from StringIO import StringIO
+
+try:
+  from StringIO import StringIO ## for Python 2
+except ImportError:
+  from io import StringIO ## for Python 3
+
 from rdpy.core.error import InvalidExpectedDataException, InvalidSize, CallPureVirtualFuntion, InvalidValue
 import rdpy.core.log as log
 
